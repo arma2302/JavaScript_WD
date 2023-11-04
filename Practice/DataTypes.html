@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Types In JavaSccript</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgb(183, 121, 121);
+        text-transform: capitalize;
+        color: aliceblue;
+        font-size: 24px;
+      }
+      p {
+        margin-bottom: 10px;
+      }
+      li {
+        color: black;
+        font-weight: 600;
+      }
+      h3 {
+        font-size: 40px;
+        margin-bottom: 10px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DataTypes in JavaSccript</h1>
+    <br />
+    <h3>Premetive DataTypes</h3>
+    <ul>
+      <li>Number</li>
+      <p>represents numeric values e.g. 100</p>
+      <li>string</li>
+      <p>represents sequence of characters e.g. "hello"</p>
+      <li>BigInt</li>
+
+      <p>represents Big numeric values e.g. 1234567890n</p>
+      <li>Boolean</li>
+      <p>represents boolean value either false or true</p>
+      <li>Null</li>
+      <p>represents null i.e. no value at all</p>
+      <li>Undefined</li>
+      <p>represents undefined value</p>
+    </ul>
+    <br />
+    <h3>Non-Premetive DataTypes</h3>
+    <ul>
+      <li>Array</li>
+      <p>represents group of similar values</p>
+      <li>object</li>
+      <p>represents instance through which we can access members</p>
+    </ul>
+    <script>
+      // Number
+      let n;
+      n = 12.345;
+      console.log(typeof n);
+      // String
+
+      let a;
+      // a="javascript"
+      // a='javascript'
+      a = `java"script"`;
+      console.log(a);
+      console.log(typeof a);
+
+      //   BigInt
+
+      let b = 123553674899399930n;
+      console.log(typeof b);
+
+      //   Boolean
+      let c;
+      c = true;
+      console.log(typeof c);
+
+      //Null
+      let d = null;
+      console.log(typeof d);
+
+      //   Undefined
+      let e;
+      console.log(typeof e);
+      // Symbols
+      let deepak = Symbol("arma");
+      console.log(deepak);
+
+      //   array
+      let array = ["arma", 21, 929292922929, "A"];
+      console.log(array);
+      console.log(array.length);
+      console.log(typeof array);
+      console.log(array[3]);
+
+      //   Object
+      let arma = {
+        name: "arma",
+        age: 21,
+        grade: "A",
+      };
+      console.log(arma);
+      console.log(typeof arma);
+      console.log(arma.age);
+      console.log(arma.name);
+      console.log(arma.grade);
+    </script>
+  </body>
+</html>
