@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OnClick Change the Css</title>
+    <style>
+      a {
+        text-decoration: none;
+        color: #222;
+        font-size: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#" onclick="change()" id="anchor-tag">Click Me Link</a>
+
+    <script>
+      function change() {
+        document.getElementById("anchor-tag").style.fontSize = "50px";
+        document.getElementById("anchor-tag").style.backgroundColor = "#1212";
+      }
+    </script>
+  </body>
+</html>
