@@ -1,11 +1,76 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Functions in javascript</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      div {
+        margin: 10% auto;
+        display: flex;
+        justify-content: center;
+      }
+      #box {
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+        /* margin: 10% auto; */
+      }
+      button {
+        font-size: 20x;
+        padding: 20px 30px;
+        background-color: bisque;
+        border: none;
+        border-radius: 12px 0 12px 0;
+        /* margin: 10% auto; */
+      }
+      .box2 {
+        background-color: aquamarine;
+      }
+    </style>
   </head>
   <body>
-    <script></script>
+    <section>
+      <div id="box"></div>
+      <div><button onclick="chng()">Change Class</button></div>
+    </section>
+    <script>
+      function chng() {
+        document.getElementById("box").className = "box1";
+      }
+    </script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .default {
+        background-color: red;
+      }
+      .changedClass {
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 style="color: green">GeeksforGeeks</h1>
+    <h2>Change class name of element</h2>
+    <button class="default" onclick="changeClass()" id="myButton">Click Here!</button><br />
+    <p id="myPara">Old class name: default</p>
+
+    <script>
+      function changeClass() {
+        document.getElementById("myButton").className = "changedClass";
+        let button_class = document.getElementById("myButton").className;
+        document.getElementById("myPara").innerHTML = "New class name: " + button_class;
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aside-bar</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        color: #fff;
+        font-size: 24px;
+      }
+      .aside-bar-left {
+        height: 100%;
+        width: 200px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      .aside-bar-left a,
+      .aside-bar-right a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 24px;
+        padding: 10px;
+      }
+      .aside-bar-right {
+        height: 100%;
+        width: 200px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+      }
+      .container,
+      #container {
+        max-width: 80%;
+        padding: 10px;
+        margin: 10px 200px;
+      }
+      section {
+        text-align: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      section:nth-of-type(1) {
+        background-color: rgb(150, 138, 223);
+      }
+      section:nth-of-type(2) {
+        background-color: rgb(227, 152, 223);
+      }
+      section:nth-of-type(3) {
+        background-color: rgb(61, 133, 133);
+      }
+      section:nth-of-type(4) {
+        background-color: rgb(188, 80, 94);
+      }
+      section:nth-of-type(5) {
+        background-color: rgb(86, 223, 223);
+      }
+      header {
+        display: flex;
+        gap: 50px;
+        align-items: center;
+        color: #111;
+        padding: 20px 100px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        margin: 0 200px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #000000;
+        font-size: 24px;
+        padding: 10px;
+      }
+      .logo {
+        margin-left: 28px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Left Side Aside bar -->
+    <div class="aside-bar-left">
+      <a href="#" onclick="abt()">About</a>
+      <a href="#">home</a>
+      <a href="#">services</a>
+      <a href="#">Contact</a>
+    </div>
+    <!-- Right Side Aside bar -->
+    <div class="aside-bar-right">
+      <a href="#">About</a>
+      <a href="#">home</a>
+      <a href="#">services</a>
+      <a href="#">Contact</a>
+    </div>
+    <!-- header starts -->
+    <div class="container">
+      <header>
+        <div class="logo"><h2>logo</h2></div>
+        <nav>
+          <a href="#">About</a>
+          <a href="#">home</a>
+          <a href="#">services</a>
+          <a href="#">Contact</a>
+        </nav>
+      </header>
+    </div>
+    <!-- header ends -->
+    <!-- section 1 -->
+    <section>
+      <div class="container">
+        <div id="main">
+          <h1>Section 1</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quos quam aliquam nemo harum quis distinctio perferendis explicabo? Dolorum delectus ipsam harum voluptates beatae quod atque deleniti, vero blanditiis ut?</p>
+        </div>
+        <div id="change">
+          <h1>Hello I am changed content</h1>
+          <p>This is my First Javascript Parctice for on click changing the class using function.</p>
+          <iframe src="../Task/calculator.html" frameborder="0" width="100% " height="100%" name="frame1"></iframe>
+        </div>
+      </div>
+    </section>
+    <!-- section 2 -->
+    <section>
+      <div id="container">
+        <h1>Section 2</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima in sint, cupiditate recusandae aut porro sed deleniti voluptate dolores odio aliquid! Dignissimos dolorum fuga atque velit consequuntur quasi est?</p>
+      </div>
+    </section>
+    <!-- section 3 -->
+    <section>
+      <div class="container">
+        <h1>Section 3</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima in sint, cupiditate recusandae aut porro sed deleniti voluptate dolores odio aliquid! Dignissimos dolorum fuga atque velit consequuntur quasi est?</p>
+      </div>
+    </section>
+    <!-- section 4 -->
+    <section>
+      <div class="container">
+        <h1>Section 4</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima in sint, cupiditate recusandae aut porro sed deleniti voluptate dolores odio aliquid! Dignissimos dolorum fuga atque velit consequuntur quasi est?</p>
+      </div>
+    </section>
+    <!-- section 5 -->
+    <section>
+      <div class="container">
+        <h1>Section 5</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima in sint, cupiditate recusandae aut porro sed deleniti voluptate dolores odio aliquid! Dignissimos dolorum fuga atque velit consequuntur quasi est?</p>
+      </div>
+    </section>
+  </body>
+  <script>
+    document.getElementById("change").style.display = "none";
+    function abt() {
+      document.getElementById("change").style.display = "block";
+      document.getElementById("main").style.display = "none";
+    }
+  </script>
+</html>
