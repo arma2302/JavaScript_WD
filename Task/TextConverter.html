@@ -11,21 +11,210 @@
         box-sizing: border-box;
       }
       section {
+        position: relative;
+      }
+      h1 {
+        font-size: 44px;
+        color: #d0caca;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        text-align: center;
+        margin: 20px 0;
+        /* margin: 10% auto; */
+      }
+      .overlay {
         width: 100%;
-        height: 100vh;
+        height: 150vh;
+        background-image: url(../images/low-poly-grid-haikei.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        filter: drop-shadow(1px 1px 1px #222);
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        filter: blur(5px);
       }
       .container {
         width: 80%;
-        margin: 0 auto;
+        margin: 10% auto;
         padding: 20px;
+      }
+      .main-wrap {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background-color: aliceblue;
+        padding: 20px;
+        gap: 50px;
+      }
+      input {
+        width: 100%;
+        height: 100px;
+        background: transparent;
+        border: none;
+        font-size: 24px;
+      }
+      input:focus {
+        border: none;
+        outline: none;
+      }
+      ::placeholder {
+        color: #222;
+      }
+      .btns-wrap {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        text-align: center;
+        /* justify-content: center; */
+        flex-wrap: wrap;
+      }
+      .single-btn {
+        padding: 10px 20px;
+        width: 30%;
+        background-color: transparent;
+        border: none;
+        border: 5px slid #1111;
+        color: #000000;
+        font-size: 30px;
+        background-color: #aad3ec;
+        /* background: url(../images/btn-light-bg.png); */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 14px;
+      }
+      .btn-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      #display {
+        width: 100%;
+        background-color: #aad3ec;
+        padding: 20px;
+        /* height: 100px; */
+        font-size: 25px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      }
+      #show {
+        font-size: 15px;
+      }
+      #show ::placeholder {
+        font-size: 15px;
+        color: #807e7e;
       }
     </style>
   </head>
   <body>
     <section>
       <div class="container">
-        <div class="main-wrap"></div>
+        <h1>Text Converter Using JavaScript!</h1>
+        <div class="main-wrap">
+          <!-- Input box -->
+          <input type="text" id="input" placeholder="Type text" />
+          <!-- Butttons wrapper  -->
+          <div class="btns-wrap">
+            <button class="single-btn" onclick="upper() ">Uppercase</button>
+            <button class="single-btn" onclick="lower()">Lowercase</button>
+            <button class="single-btn" onclick="clear()">Clear</button>
+            <button class="single-btn" onclick="wc()">Word Count</button>
+            <button class="single-btn" onclick="trim()">trim</button>
+            <button class="single-btn" onclick="sr()">space Remove</button>
+            <button class="single-btn" onclick="char_count()">charcter count</button>
+            <button class="single-btn" onclick="Fr()">Find and Replace</button>
+          </div>
+          <div id="display">
+            <div class="display-screen">
+              <input type="text" id="show" placeholder="show result , find charcter count etc." />
+            </div>
+            <span id="hey"></span>
+          </div>
+        </div>
       </div>
     </section>
+    <!--overlay for blur background image  -->
+    <div class="overlay"></div>
+    <!-- script -->
+    <script>
+      //--------------- function for uppercase------------//
+      function upper() {
+        // Variable to store input value
+        let text = document.getElementById("input").value;
+        // change the value of input using string toUppercase methode
+        document.getElementById("input").value = text.toUpperCase();
+        // document.getElementById("display").innerHTML = text.toUpperCase();
+      }
+
+      //   -----------Function for lowercasw------------------//
+      function lower() {
+        // Variable to store input value
+        let text = document.getElementById("input").value;
+        // change the value of input using string tolowercase methode
+        document.getElementById("input").value = text.toLowerCase();
+      }
+      //------------- Function for word count------------------//
+      //   function wc() {
+      //     let text = document.getElementById("input").value;
+      //     console.log(text);
+      //     console.log(parseInt(text.lenght));
+      //     let textIs = 0;
+      //     for (let i = 0; i < text.length; i++) {
+      //       console.log(i);
+      //     }
+      //     console.log(wc(text));
+      //   }
+
+      function wc() {
+        let text = document.getElementById("input").value;
+
+        console.log(text);
+        let a = Number(text.length);
+        let b = text.trim().split(/\s+/).length;
+        console.log(a);
+        console.log(b);
+        // document.write(a + " Character " + b + " Word");
+        document.getElementById("hey").innerText = a + " Character " + b + " Word";
+      }
+
+      //------------- Function for trim ------------------//
+      function trim() {
+        let text = document.getElementById("input").value;
+        document.getElementById("input").value = text.trim();
+      }
+
+      //------------- Function for remove space ------------------//
+      function sr() {
+        let text = document.getElementById("input").value;
+        space = text.replaceAll(" ", "");
+        document.getElementById("input").value = space;
+      }
+
+      //------------- Function for char  count ------------------//
+      //   function char_count() {
+      //     let text = document.getElementById("input").value;
+      //     count = text.char_count;
+      //     document.getElementById("input").value = space;
+      //   }
+
+      //------------- Function for remove space ------------------//
+      function fr() {
+        let text = document.getElementById("input").value;
+        let repl = document.getElementById("show").value;
+        let replaced_text = text.replace(text.value, repl.value);
+        document.getElementById("input").value = replaced_text;
+      }
+
+      //   ---------------------clear function---------------//
+      function clear() {
+        let text = document.getElementById("input").value;
+        let clear_html = (document.getElementById("input").innerHTML = "");
+        document.getElementById("input").valuel;
+      }
+    </script>
   </body>
 </html>
