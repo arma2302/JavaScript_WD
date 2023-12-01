@@ -12,18 +12,20 @@
       }
       section {
         position: relative;
+        overflow: hidden;
       }
       h1 {
         font-size: 44px;
-        color: #d0caca;
+        color: #fffcfc;
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
         text-align: center;
         margin: 20px 0;
         /* margin: 10% auto; */
+        text-shadow: 1px 1px 1px #111;
       }
       .overlay {
         width: 100%;
-        height: 150vh;
+        height: 100vh;
         background-image: url(../images/low-poly-grid-haikei.svg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -36,20 +38,26 @@
         filter: blur(5px);
       }
       .container {
-        width: 80%;
-        margin: 10% auto;
-        padding: 20px;
+        width: 70%;
+        margin: 0 auto;
+        /* padding: 20px; */
       }
       .main-wrap {
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        background-color: aliceblue;
+        /* background-color: aliceblue; */
+        background: url(../images/blurry-gradient-haikei.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         padding: 20px;
         gap: 50px;
+        border-top-left-radius: 40px;
+        border-bottom-right-radius: 40px;
       }
-      input {
+      #input {
         width: 100%;
         height: 100px;
         background: transparent;
@@ -78,7 +86,7 @@
         border: none;
         border: 5px slid #1111;
         color: #000000;
-        font-size: 30px;
+        font-size: 25px;
         background-color: #aad3ec;
         /* background: url(../images/btn-light-bg.png); */
         background-repeat: no-repeat;
@@ -95,11 +103,19 @@
       }
       #display {
         width: 100%;
-        background-color: #aad3ec;
+        /* background-color: #ffffff; */
+        /* background-image: url(../images/blurry-gradient-haikei2.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; */
+        background: rgb(105, 184, 249);
+        background: linear-gradient(124deg, rgba(105, 184, 249, 0.5328256302521008) 0%, rgba(255, 255, 255, 1) 100%);
         padding: 20px;
         /* height: 100px; */
         font-size: 25px;
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        border-top-left-radius: 40px;
+        border-bottom-right-radius: 40px;
       }
       #show {
         font-size: 15px;
@@ -108,12 +124,33 @@
         font-size: 15px;
         color: #807e7e;
       }
+      span {
+        background-color: aliceblue;
+        width: 30%;
+        padding: 10px;
+        box-shadow: 4px 5px 7px 0px #2222224f;
+      }
+      #display {
+        display: flex;
+        gap: 20px;
+        justify-content: space-around;
+      }
+
+      #find,
+      #replace {
+        width: 30%;
+        background-color: #22222275;
+        border: none;
+        border-radius: 2px;
+        color: #fff;
+        padding: 10px;
+      }
     </style>
   </head>
   <body>
     <section>
+      <h1>Text Converter Using JavaScript!</h1>
       <div class="container">
-        <h1>Text Converter Using JavaScript!</h1>
         <div class="main-wrap">
           <!-- Input box -->
           <input type="text" id="input" placeholder="Type text" />
@@ -126,13 +163,12 @@
             <button class="single-btn" onclick="trim()">trim</button>
             <button class="single-btn" onclick="sr()">space Remove</button>
             <button class="single-btn" onclick="char_count()">charcter count</button>
-            <button class="single-btn" onclick="Fr()">Find and Replace</button>
+            <button class="single-btn" onclick="fr()">Find and Replace</button>
           </div>
           <div id="display">
-            <div class="display-screen">
-              <input type="text" id="show" placeholder="show result , find charcter count etc." />
-            </div>
-            <span id="hey"></span>
+            <input type="text" id="find" placeholder="Enter a  word you want to replace" />
+            <input type="text" id="replace" placeholder=" Enter a word you want to replace with" />
+            <span id="hey">Display result</span>
           </div>
         </div>
       </div>
@@ -173,12 +209,12 @@
         let text = document.getElementById("input").value;
 
         console.log(text);
-        let a = Number(text.length);
+        // let a = Number(text.length);
         let b = text.trim().split(/\s+/).length;
-        console.log(a);
-        console.log(b);
+        // console.log(a);
+        // console.log(b);
         // document.write(a + " Character " + b + " Word");
-        document.getElementById("hey").innerText = a + " Character " + b + " Word";
+        document.getElementById("hey").innerText = b + " word ";
       }
 
       //------------- Function for trim ------------------//
@@ -194,26 +230,34 @@
         document.getElementById("input").value = space;
       }
 
-      //------------- Function for char  count ------------------//
-      //   function char_count() {
-      //     let text = document.getElementById("input").value;
-      //     count = text.char_count;
-      //     document.getElementById("input").value = space;
-      //   }
+      // ------------- Function for char  count ------------------//
+      function char_count() {
+        let text = document.getElementById("input").value;
+        console.log(text);
+        let a = Number(text.length);
+        console.log(a);
+        document.getElementById("hey").innerText = a + " Character";
+      }
 
       //------------- Function for remove space ------------------//
       function fr() {
         let text = document.getElementById("input").value;
-        let repl = document.getElementById("show").value;
-        let replaced_text = text.replace(text.value, repl.value);
-        document.getElementById("input").value = replaced_text;
+        console.log(text);
+        let find_word = document.getElementById("find").value;
+        console.log(find_word);
+
+        let new_word = document.getElementById("replace").value;
+        console.log(new_word);
+
+        // let new_text = text.replace(find_word, new_word);
+        document.getElementById("input").value = text.replace(find_word, new_word);
+        console.log(text);
       }
 
       //   ---------------------clear function---------------//
       function clear() {
-        let text = document.getElementById("input").value;
-        let clear_html = (document.getElementById("input").innerHTML = "");
-        document.getElementById("input").valuel;
+        document.getElementById("input").value = " ";
+        // let clear_html = (document.getElementById("input").innerHTML = "");
       }
     </script>
   </body>
