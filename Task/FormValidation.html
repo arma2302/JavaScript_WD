@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form validation</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: url(../images/blob-scene-haikei.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .btn {
+      display: flex;
+      justify-content: end;
+      align-items: end;
+    }
+    label {
+      /* max-width: 100px; */
+      width: 90px;
+      text-align: left;
+      display: inline-block;
+      font-size: 20px;
+    }
+    input {
+      width: 60%;
+      padding: 20px;
+      margin-bottom: 20px;
+      font-size: 20px;
+      background: transparent;
+      border: none;
+      border: 1px solid #222;
+    }
+    ::placeholder {
+      color: #222;
+      opacity: 0.9;
+      font-size: 12px;
+      text-transform: capitalize;
+    }
+    .btns button {
+      padding: 10px 20px;
+      font-size: 15px;
+      /* margin-left: 20px; */
+      background-color: aliceblue;
+      color: #222;
+      border: none;
+      width: 20%;
+    }
+
+    .reqtext {
+      color: red;
+      font-size: 10px;
+    }
+    form {
+      background-color: rgb(129, 189, 205);
+      width: 70%;
+      padding: 20px;
+      margin-top: 2%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h2 {
+      text-align: center;
+      margin: 50px 0;
+      text-transform: capitalize;
+      color: rgb(144, 10, 88);
+      font-size: 30px;
+    }
+  </style>
+  <body>
+    <h2>Form vadition using javascript</h2>
+    <form
+      action="
+    "
+    >
+      <!-- username -->
+      <label for="usrname">Username:</label>
+      <input type="text" placeholder="Username" id="usrname" value="" onblur=" validatusername()" /><span id="username" class="reqtext"></span><br />
+      <!-- password -->
+      <label for="pw">password:</label>
+      <input type="password" placeholder="Password" id="pw" value="" onblur=" validatepw()" /><span id="pasword_span" class="reqtext"></span><br />
+      <!-- email -->
+      <label for="email">Email:</label>
+      <input type="text" placeholder="abcd@email.com" id="email" value="" onblur=" validateemail()" /><span id="em" class="reqtext"></span><br />
+      <!-- phone no -->
+      <label for="mobile_num">Phone No:</label>
+      <input type="text" placeholder="Phone Number" id="mobile_num" value="" onblur=" validatephone()" /><span id="mn" class="reqtext"></span>
+      <!-- Buttons -->
+      <div class="btns">
+        <button onsubmit="submit()">Submit</button>
+        <button onclick="reset()">reset</button>
+      </div>
+    </form>
+    <!-- Script For Form validation -->
+    <script>
+      // function validateForm() {
+      //   let email = document.getElementById("email").value;
+      //   let phone_no = document.getElementById("mobile_num").value;
+      //   if (name.value) {
+      //     if (name == "") {
+      //     }
+      //   } else {
+      //     document.getElementById("username").innerText = "";
+      //   }
+      //   // for username
+      //   if (name == "") {
+      //     document.getElementById("username").innerText = " * Enter Your username";
+      //   }
+      //   // } else {
+      //   // }
+      // }
+      function validatusername() {
+        let name = document.getElementById("usrname").value;
+        if (name == "") {
+          document.getElementById("username").innerText = " * Enter Your username";
+        } else {
+          document.getElementById("username").innerText = "";
+        }
+      }
+      function validatepw() {
+        let pass = document.getElementById("pw").value;
+        if (pass == "") {
+          document.getElementById("pasword_span").innerText = " * Enter Your password";
+        } else {
+          document.getElementById("pasword_span").innerText = "";
+        }
+      }
+
+      function validateemail() {
+        let pass = document.getElementById("email").value;
+        if (pass == "") {
+          document.getElementById("em").innerText = " * Enter Your email";
+        } else {
+          document.getElementById("em").innerText = "";
+        }
+      }
+
+      function validatephone() {
+        let pass = document.getElementById("mobile_num").value;
+        if (pass == "") {
+          document.getElementById("mn").innerText = " * Enter Your email";
+        } else {
+          document.getElementById("mn").innerText = "";
+        }
+      }
+
+      // Function For submitting the form
+
+      function submit() {
+        alert("Your Form Is Submitted successfully");
+      }
+    </script>
+  </body>
+</html>

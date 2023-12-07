@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form validation</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: url(../images/blob-scene-haikei.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .btn {
+      display: flex;
+      justify-content: end;
+      align-items: end;
+    }
+    label {
+      /* max-width: 100px; */
+      width: 100px;
+      text-align: left;
+      display: inline-block;
+      font-size: 20px;
+    }
+    input {
+      width: 60%;
+      padding: 20px;
+      margin-bottom: 20px;
+      font-size: 20px;
+      background: transparent;
+      border: none;
+      border: 1px solid #222;
+    }
+    ::placeholder {
+      color: #222;
+      opacity: 0.9;
+      font-size: 12px;
+      text-transform: capitalize;
+    }
+    .btns button {
+      padding: 10px 20px;
+      font-size: 15px;
+      /* margin-left: 20px; */
+      background-color: aliceblue;
+      color: #222;
+      border: none;
+      width: 20%;
+    }
+
+    .reqtext {
+      color: red;
+    }
+    form {
+      background-color: rgb(129, 189, 205);
+      width: 100%;
+      padding: 20px;
+      margin-top: 2%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h2 {
+      text-align: center;
+      margin: 20px;
+      text-transform: capitalize;
+      color: rgb(144, 10, 88);
+      font-size: 30px;
+    }
+  </style>
+  <body>
+    <h2>Form vadition using javascript</h2>
+    <form
+      action="
+    "
+    >
+      <!-- username -->
+      <label for="usrname">Username:</label>
+      <input type="text" placeholder="Username" id="usrname" value="" onblur=" validateForm()" class="req1" /><span id="username" class="reqtext"></span><br />
+      <!-- password -->
+      <label for="pw">password:</label>
+      <input type="password" placeholder="Password" id="pw" value="" onblur=" validateForm()" class="req2" /><span id="pasword_span" class="reqtext"></span><br />
+      <!-- email -->
+      <label for="email">Email:</label>
+      <input type="text" placeholder="abcd@email.com" id="email" value="" onblur=" validateForm()" class="req3" /><span id="em" class="reqtext"></span><br />
+      <!-- phone no -->
+      <label for="mobile_num">Phone No:</label>
+      <input type="text" placeholder="Phone Number" id="mobile_num" value="" onblur=" validateForm()" class="req4" /><span id="mn" class="reqtext"></span>
+      <!-- Buttons -->
+      <div class="btns">
+        <button onclick="submit()">Submit</button>
+        <button onclick="reset()">reset</button>
+      </div>
+    </form>
+    <!-- Script For Form validation -->
+    <script>
+      let email = document.getElementById("email").value;
+      let pass = document.getElementById("pw").value;
+      let phone_no = document.getElementById("mobile_num").value;
+      function validateForm() {
+        let name = document.getElementById("usrname").value;
+        let pass = document.getElementById("pw").value;
+
+        if (name == "") {
+          document.getElementById("username").innerText = "enter your username";
+          if (pass == "") {
+            document.getElementById("pasword_span").innerText = "enter your username";
+          }
+        } else {
+          document.getElementById("username").innerText = "";
+          document.getElementById("pasword_span").innerText = "";
+        }
+      }
+      //     if (document.querySelector(".req2")) {
+      //       if (pass == "") {
+      //         document.getElementById("pasword_span").innerText = "enter your username";
+      //       } else {
+      //         document.getElementById("pasword_span").innerText = "";
+      //       }
+      //     }
+      //   }
+
+      //   function validateForm() {
+      //     if (pass == "") {
+      //       document.getElementById("pasword_span").innerText = "enter your pass";
+      //     } else {
+      //       document.getElementById("username").innerText = "";
+      //     }
+      //   }
+      //   else {
+      //     document.getElementById("pasword_span").innerText = "";
+      //   }
+
+      // let input = document.querySelector("input").value;
+      // if (input == "") {
+      //   document.getElementById("username").innerText = "enter your username";
+      // } else {
+      //   document.getElementById("username").innerText = "";
+      //   document.getElementById("pasword_span").innerText = "";
+      // }
+      // let name = document.getElementById("usrname").value;
+      // let email = document.getElementById("email").value;
+      // let pass = document.getElementById("pw").value;
+      // let phone_no = document.getElementById("mobile_num").value;
+      // if (name == "") {
+      //   document.getElementById("username").innerText = "enter your username";
+      //   if ((pass = "")) {
+      //     document.getElementById("pasword_span").innerText = "enter your password";
+      //   }
+      // }
+    </script>
+  </body>
+</html>
