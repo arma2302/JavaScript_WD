@@ -3,8 +3,233 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="../images/instagram-icon.png.crdownload" type="image/x-icon" />
-    <title>InstaGram</title>
+    <link rel="shortcut icon" href="../images/icons8-instagram-200.png" type="image/x-icon" />
+    <title>Instagram</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      }
+      img {
+        width: 100%;
+      }
+      .container {
+        width: 90%;
+        padding: 20px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .main-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+        /* border: 1px solid #22222267; */
+        width: 35%;
+      }
+      .main-wrap-1 {
+        border: 1px solid #22222267;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+      }
+      .insta-logo {
+        width: 200px;
+        border: none;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: rgb(250, 250, 250);
+        border: none;
+        border: 1px solid #22222267;
+        border-radius: 5px;
+      }
+      .user-data-wrap {
+        width: 100%;
+        padding: 0 40px;
+      }
+      .login {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #4ea0fd;
+        color: #fff;
+        font-weight: 600;
+        border: none;
+        font-size: 16px;
+      }
+      .or {
+        display: flex;
+        /* justify-content: space-between; */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 10px 40px;
+        gap: 20px;
+      }
+      .line {
+        width: 40%;
+        background-color: #22222239;
+        height: 1px;
+      }
+      .or span {
+        color: #22222298;
+        /* font-weight: 600; */
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      }
+      .fpass-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 40px;
+      }
+      .facebook-logo {
+        width: 30px;
+      }
+      .fpass-login p {
+        font-size: 18px;
+        color: #104b8d;
+      }
+      .fpass {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        font-size: 16px;
+        color: #22222239;
+      }
+      .sign-up {
+        padding: 20px 40px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid #22222267;
+      }
+      .app {
+        text-align: center;
+      }
+      .app-btns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 10px;
+      }
+      .app-btns button {
+        border: none;
+        width: 30%;
+      }
+      #show {
+        position: absolute;
+        bottom: 66%;
+        right: 42%;
+        font-size: 12px;
+        color: #222;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      #pass {
+        position: relative;
+      }
+      span {
+        cursor: pointer;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <!-- instagram login page  -->
+    <section>
+      <div class="container">
+        <div class="main-wrap">
+          <div class="main-wrap-1">
+            <!-- logo written  -->
+            <div class="insta-logo">
+              <img src="../images/insta-text.png" alt="" />
+            </div>
+            <!-- inputs -->
+            <div class="user-data-wrap">
+              <input type="text" name="user" id="username" placeholder="Phone Number,Username or email" />
+              <div>
+                <input type="password" id="pass" placeholder="Password" onclick="password()" />
+                <span onclick="showpass()" id="show">show </span>
+              </div>
+              <button class="login" onclick="login()">Log in</button>
+            </div>
+            <!-- span for OR -->
+            <div class="or">
+              <div class="line"></div>
+              <span>OR</span>
+              <div class="line"></div>
+            </div>
+
+            <!-- Login with facebook & forgot password-->
+            <div class="fpass-login">
+              <div class="facebook-logo">
+                <img src="../images/facebook_logo.png" alt="" />
+              </div>
+              <p>Log In With FaceBook</p>
+            </div>
+            <span class="fpass">Forgot Password?</span>
+          </div>
+          <!-- Don't Have an account  -->
+          <div class="sign-up">
+            <p>Don't have An Account? <span onclick="signUp()">sign Up</span></p>
+          </div>
+          <!-- Get the app -->
+          <div class="app">
+            <p>Get the app</p>
+            <div class="app-btns">
+              <button class="gplay" onclick="gplay()"><img src="../images/gplay.png" alt="" /></button>
+              <button class="microsoft"><img src="../images/microsoft.png" alt="" /></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Scripts Starts Here -->
+    <script>
+      // SPAN OPACITY 0 IN NORMAL
+      document.getElementById("show").style.opacity = "0";
+
+      // wHEN I CLICK ON PASSWORD INPUT THE SPAN OPACITY WILL BE 1
+      function password() {
+        document.getElementById("show").style.opacity = "1";
+      }
+      //   FUNCTION FOR SHOW AND HIDE PASSWORD
+      function showpass() {
+        let user_pass = document.getElementById("pass");
+
+        if (user_pass.type === "password") {
+          user_pass.type = "text";
+          document.getElementById("show").innerText = "Hide";
+        } else {
+          user_pass.type = "password";
+          document.getElementById("show").innerText = "show";
+        }
+      }
+      // login
+      function login() {
+        window.open("https://www.instagram.com/instagram/", "_blank");
+      }
+      // signUp
+      function signUp() {
+        window.open("https://www.instagram.com/accounts/emailsignup/", "_blank");
+      }
+      // Googleplay
+      function gplay() {
+        window.open(
+          "https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3D078521EA-E1F3-4976-BC9D-8A84C7A9E31A%26utm_campaign%3DloginPage%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge%26original_referrer%3Dhttps://in.search.yahoo.com/&pli=1",
+          "_blank "
+        );
+      }
+    </script>
+  </body>
 </html>
