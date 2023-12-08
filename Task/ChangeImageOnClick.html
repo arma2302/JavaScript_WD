@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Image onclick</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      img {
+        width: 100%;
+      }
+      div {
+        width: 500px;
+        height: 500px;
+        margin: 5% auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      button {
+        width: 200px;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #222;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+      }
+      button:hover {
+        color: #222;
+        background-color: #fff;
+        border: 1px solid black;
+      }
+      h1 {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Change Image onclick in Javascript</h1>
+      <img src="" alt="" id="change" />
+      <button onclick="clickme()" id="hey">Click Me!</button>
+    </div>
+  </body>
+  <!-- script Starts Here -->
+  <script>
+    let imgData = document.getElementById("change");
+    let btn = document.getElementById("hey");
+    let firstImage = true;
+    function clickme() {
+      if (firstImage) {
+        // console.log(firstImage);
+        imgData.src = "RefImg2.jpg";
+      } else {
+        imgData.src = "RefImg1.webp";
+      }
+      firstImage = !firstImage;
+    }
+  </script>
+</html>
