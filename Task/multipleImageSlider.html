@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple Image change in javascript</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .main {
+        /* height: 500px; */
+        width: 400px;
+        margin: 3% auto;
+        border: 1px solid #222;
+      }
+      .next,
+      .prev {
+        width: 100px;
+        padding: 10px;
+        background-color: black;
+        color: aliceblue;
+        font-size: 20px;
+      }
+      .btns {
+        display: flex;
+        justify-content: space-between;
+        border: none;
+        width: 400px;
+        margin: 0 auto;
+      }
+      img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <img src="wp8265595.webp" alt="" id="chnage" />
+    </div>
+    <div class="btns">
+      <button class="prev" onclick="prev()">prev</button>
+      <button class="next" onclick="next()">Next</button>
+    </div>
+  </body>
+  <!-- script Starts Here -->
+  <script>
+    // for Image
+    let image = document.getElementById("chnage");
+
+    let imageslider = ["Refimg1.webp", "RefImg2.jpg", "ref4.webp"];
+    position = 0;
+    function next() {
+      if (position == 0) {
+        image.src = imageslider[0];
+        position = 1;
+      } else if (position == 1) {
+        image.src = imageslider[1];
+        position = 2;
+      } else if (position == 2) {
+        image.src = imageslider[2];
+        position = 3;
+      }
+    }
+
+    function prev() {
+      if (position == 0) {
+        image.src = imageslider[2];
+        position = 1;
+      } else if (position == 1) {
+        image.src = imageslider[1];
+        position = 2;
+      } else if (position == 2) {
+        image.src = imageslider[0];
+        position = 3;
+      } else {
+        position = 0;
+      }
+    }
+  </script>
+</html>
