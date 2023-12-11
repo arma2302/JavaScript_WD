@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      img {
+        width: 100%;
+      }
+      .main {
+        width: 90%;
+        height: 90%;
+        margin: 2.2% auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        /* border-radius: 50%; */
+        background-color: #1acdfa47;
+        padding: 20px;
+        border: 2px solid #111;
+      }
+      .main img {
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+      }
+      button {
+        padding: 10px;
+        background-color: #222;
+        border: 1px solid #333;
+        border-radius: 10px;
+        width: 200px;
+        margin: 0 auto;
+        color: #fff;
+        font-size: 20px;
+      }
+      button:hover {
+        background-color: #fff;
+        color: #222;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div>
+        <img alt="" src="https://i.pinimg.com/originals/90/70/58/9070587de0e3227cba0d9a6a880b4682.jpg" id="imgClickAndChange" />
+      </div>
+      <button onclick="changeImage()">Cliclk Me</button>
+    </div>
+
+    <script>
+      function changeImage() {
+        if (document.getElementById("imgClickAndChange").src == "https://i.pinimg.com/originals/90/70/58/9070587de0e3227cba0d9a6a880b4682.jpg") {
+          document.getElementById("imgClickAndChange").src = "https://i.pinimg.com/originals/f4/90/df/f490dfec25154f57ce16f59aa666e6bd.jpg";
+        } else if (document.getElementById("imgClickAndChange").src == "https://i.pinimg.com/originals/f4/90/df/f490dfec25154f57ce16f59aa666e6bd.jpg") {
+          document.getElementById("imgClickAndChange").src = "https://i.pinimg.com/564x/f1/f3/b5/f1f3b55b464830e23e8848b311a6e883.jpg";
+        } else {
+          document.getElementById("imgClickAndChange").src = "https://i.pinimg.com/originals/90/70/58/9070587de0e3227cba0d9a6a880b4682.jpg";
+        }
+      }
+    </script>
+  </body>
+</html>
