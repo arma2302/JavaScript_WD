@@ -104,10 +104,10 @@
       #display {
         width: 100%;
         /* background-color: #ffffff; */
-        /* background-image: url(../images/blurry-gradient-haikei2.svg);
+        background-image: url(../images/blurry-gradient-haikei2.svg);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: cover; */
+        background-size: cover;
         background: rgb(105, 184, 249);
         background: linear-gradient(124deg, rgba(105, 184, 249, 0.5328256302521008) 0%, rgba(255, 255, 255, 1) 100%);
         padding: 20px;
@@ -207,7 +207,6 @@
 
       function wc() {
         let text = document.getElementById("input").value;
-
         console.log(text);
         // let a = Number(text.length);
         let b = text.trim().split(/\s+/).length;
@@ -215,9 +214,10 @@
         // console.log(b);
         // document.write(a + " Character " + b + " Word");
         document.getElementById("hey").innerText = b + " word ";
+        // document.getElementById("hey").innerText = text.trim().split(/\s+/).length + "words";
       }
 
-      //------------- Function for trim ------------------//
+      //------------- Function for trim ------------------//h
       function trim() {
         let text = document.getElementById("input").value;
         document.getElementById("input").value = text.trim();
@@ -239,7 +239,7 @@
         document.getElementById("hey").innerText = a + " Character";
       }
 
-      //------------- Function for remove space ------------------//
+      //------------- Function for find replace ------------------//
       function fr() {
         let text = document.getElementById("input").value;
         console.log(text);
@@ -256,7 +256,7 @@
 
       //   ---------------------clear function--------)-------//
       function clear() {
-        document.getElementById("inputss").values = "";
+        document.getElementById("inputs").values = "";
         // console.log(text);
         // text = "";
         // document.getElementById("input").innerHTML = text;

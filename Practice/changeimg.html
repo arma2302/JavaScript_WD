@@ -23,9 +23,14 @@
         align-items: center;
         gap: 20px;
         /* border-radius: 50%; */
-        background-color: #1acdfa47;
+        background-color: #ffffff1f;
         padding: 20px;
-        border: 2px solid #111;
+        /* border: 2px solid #111; */
+        position: relative;
+        z-index: 1;
+        /* box-shadow: 9px -6px 21px 0px rgba(64, 63, 63, 0.36) inset; */
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+        border-radius: 20px;
       }
       .main img {
         width: 500px;
@@ -46,24 +51,36 @@
         background-color: #fff;
         color: #222;
       }
+      .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: url("https://wallpaperaccess.com/full/182908.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        z-index: -1;
+      }
     </style>
   </head>
   <body>
     <div class="main">
-      <div>
-        <img alt="" src="https://i.pinimg.com/originals/90/70/58/9070587de0e3227cba0d9a6a880b4682.jpg" id="imgClickAndChange" />
+      <div class="content">
+        <img alt="" src="https://i.pinimg.com/564x/58/0a/f3/580af3a27a4bc15ce06f64d412c6b9e1.jpg" id="imgClickAndChange" />
       </div>
       <button onclick="changeImage()">Cliclk Me</button>
     </div>
-
+    <div class="overlay"></div>
     <script>
       function changeImage() {
-        if (document.getElementById("imgClickAndChange").src == "https://i.pinimg.com/originals/90/70/58/9070587de0e3227cba0d9a6a880b4682.jpg") {
+        if (document.getElementById("imgClickAndChange").src == "https://i.pinimg.com/564x/58/0a/f3/580af3a27a4bc15ce06f64d412c6b9e1.jpg") {
           document.getElementById("imgClickAndChange").src = "https://i.pinimg.com/originals/f4/90/df/f490dfec25154f57ce16f59aa666e6bd.jpg";
         } else if (document.getElementById("imgClickAndChange").src == "https://i.pinimg.com/originals/f4/90/df/f490dfec25154f57ce16f59aa666e6bd.jpg") {
           document.getElementById("imgClickAndChange").src = "https://i.pinimg.com/564x/f1/f3/b5/f1f3b55b464830e23e8848b311a6e883.jpg";
         } else {
-          document.getElementById("imgClickAndChange").src = "https://i.pinimg.com/originals/90/70/58/9070587de0e3227cba0d9a6a880b4682.jpg";
+          document.getElementById("imgClickAndChange").src = "https://i.pinimg.com/564x/58/0a/f3/580af3a27a4bc15ce06f64d412c6b9e1.jpg";
         }
       }
     </script>
