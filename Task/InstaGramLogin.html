@@ -58,6 +58,8 @@
       .user-data-wrap {
         width: 100%;
         padding: 0 40px;
+        position: relative;
+        transition: 2s;
       }
       .login {
         width: 100%;
@@ -129,18 +131,47 @@
       }
       #show {
         position: absolute;
-        bottom: 66%;
-        right: 42%;
+        bottom: 46%;
+        right: 14%;
         font-size: 14px;
         color: #222;
         text-decoration: none;
         cursor: pointer;
       }
       #pass {
-        position: relative;
+        position: relative !important;
       }
       span {
         cursor: pointer;
+      }
+
+      .usern,
+      .userp {
+        position: absolute;
+        font-size: 14px;
+        color: #22222264;
+      }
+
+      .usern {
+        top: 9px;
+        left: 47px;
+        margin-bottom: 10px;
+      }
+      .userp {
+        top: 55px;
+        left: 47px;
+      }
+      input:focus {
+        outline: none;
+        font-size: 15px;
+      }
+      .user-data-wrap input:focus ~ .usern {
+        top: 5px;
+        font-size: 12px;
+      }
+      .user-data-wrap input:focus ~ .userp {
+        top: 51px;
+        font-size: 12px;
       }
     </style>
   </head>
@@ -156,9 +187,13 @@
             </div>
             <!-- inputs -->
             <div class="user-data-wrap">
-              <input type="text" name="user" id="username" placeholder="Phone Number,Username or email" />
+              <div class="user-dat">
+                <input type="text" name="user" id="username" placeholder="" />
+                <label class="usern">Phone Number,Username or email</label>
+              </div>
               <div>
-                <input type="password" id="pass" placeholder="Password" onclick="password()" />
+                <input type="password" id="pass" placeholder="" onclick="password()" />
+                <label class="userp">password</label>
                 <span onclick="showpass()" id="show">show </span>
               </div>
               <button class="login" onclick="login()">Log in</button>
@@ -201,13 +236,14 @@
 
       // wHEN I CLICK ON PASSWORD INPUT THE SPAN OPACITY WILL BE 1
       function password() {
-        document.getElementById("show").style.opacity = "1";
+        let user_pass = document.getElementById("pass");
+
+        if (user_pass.value == "") document.getElementById("show").style.opacity = "1";
       }
       //   FUNCTION FOR SHOW AND HIDE PASSWORD
       function showpass() {
         let user_pass = document.getElementById("pass");
-
-        if (user_pass.type === "password") {
+        if (user_pass.type === "password" && user_pass.value !== "") {
           user_pass.type = "text";
           document.getElementById("show").innerText = "Hide";
         } else {
