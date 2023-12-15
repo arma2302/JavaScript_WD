@@ -58,8 +58,6 @@
       .user-data-wrap {
         width: 100%;
         padding: 0 40px;
-        position: relative;
-        transition: 2s;
       }
       .login {
         width: 100%;
@@ -145,32 +143,32 @@
         cursor: pointer;
       }
 
-      .usern,
-      .userp {
+      #usern,
+      #userp {
         position: absolute;
         font-size: 14px;
         color: #22222264;
       }
+      .user-data {
+        position: relative;
+        transition: 2s;
+      }
+      #usern,
+      #userp {
+        top: 10px;
+        left: 10px;
+      }
 
-      .usern {
-        top: 9px;
-        left: 47px;
-        margin-bottom: 10px;
-      }
-      .userp {
-        top: 55px;
-        left: 47px;
-      }
       input:focus {
         outline: none;
         font-size: 15px;
       }
-      .user-data-wrap input:focus ~ .usern {
-        top: 5px;
+      .user-data input:focus ~ #usern {
+        top: 0px;
         font-size: 12px;
       }
-      .user-data-wrap input:focus ~ .userp {
-        top: 51px;
+      .user-data input:focus ~ #userp {
+        top: 0px;
         font-size: 12px;
       }
     </style>
@@ -187,13 +185,13 @@
             </div>
             <!-- inputs -->
             <div class="user-data-wrap">
-              <div class="user-dat">
+              <div class="user-data">
                 <input type="text" name="user" id="username" placeholder="" />
-                <label class="usern">Phone Number,Username or email</label>
+                <label id="usern">Phone Number,Username or email</label>
               </div>
-              <div>
+              <div class="user-data">
                 <input type="password" id="pass" placeholder="" onclick="password()" />
-                <label class="userp">password</label>
+                <label id="userp">password</label>
                 <span onclick="showpass()" id="show">show </span>
               </div>
               <button class="login" onclick="login()">Log in</button>
@@ -238,7 +236,9 @@
       function password() {
         let user_pass = document.getElementById("pass");
 
-        if (user_pass.value == "") document.getElementById("show").style.opacity = "1";
+        if (user_pass.value == "") {
+          document.getElementById("show").style.opacity = "1";
+        }
       }
       //   FUNCTION FOR SHOW AND HIDE PASSWORD
       function showpass() {
@@ -251,6 +251,7 @@
           document.getElementById("show").innerText = "show";
         }
       }
+
       // login
       function login() {
         window.open("https://www.instagram.com/instagram/", "_blank");
