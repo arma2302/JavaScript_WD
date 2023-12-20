@@ -43,6 +43,10 @@
         align-items: center;
         border-radius: 10px;
       }
+
+      img {
+        width: 100%;
+      }
       .players {
         border: 1px solid #870957;
         background-color: #870957;
@@ -109,9 +113,9 @@
 
         <!-- dice imgs -->
         <div class="dice-wrapper">
-          <div class="dice"><p id="randome1"></p></div>
+          <div class="dice"><img src="dice-6.png" alt="" id="randimg" /></div>
           <button onclick="rollDice()" class="roll">Roll</button>
-          <div class="dice"><p id="randome2"></p></div>
+          <div class="dice"><img src="dice-6.png" alt="" id="randimg2" /></div>
         </div>
         <button onclick="edits_name()" class="edit">Edit Names</button>
         <span id="result">Let's See Who Wins!</span>
@@ -132,9 +136,44 @@
         let randomenumber1 = Math.floor(Math.random() * 6) + 1; //for first player's num
         let randomenumber2 = Math.floor(Math.random() * 6) + 1; //for second player's num
 
-        document.getElementById("randome1").innerText = randomenumber1;
-        document.getElementById("randome2").innerText = randomenumber2;
+        if (randomenumber1 == 1) {
+          document.getElementById("randimg").src = "dice-1.png";
+        }
+        if (randomenumber1 == 2) {
+          document.getElementById("randimg").src = "dice-2.png";
+        }
+        if (randomenumber1 == 3) {
+          document.getElementById("randimg").src = "dice-3.png";
+        }
+        if (randomenumber1 == 4) {
+          document.getElementById("randimg").src = "dice-4.png";
+        }
+        if (randomenumber1 == 5) {
+          document.getElementById("randimg").src = "dice-5.png.crdownload";
+        }
+        if (randomenumber1 == 6) {
+          document.getElementById("randimg").src = "dice-6.png";
+        }
+        // for second dice
 
+        if (2 == 1) {
+          document.getElementById("randimg2").src = "dice-1.png";
+        }
+        if (randomenumber2 == 2) {
+          document.getElementById("randimg2").src = "dice-2.png";
+        }
+        if (randomenumber2 == 3) {
+          document.getElementById("randimg2").src = "dice-3.png";
+        }
+        if (randomenumber2 == 4) {
+          document.getElementById("randimg2").src = "dice-4.png";
+        }
+        if (randomenumber2 == 5) {
+          document.getElementById("randimg2").src = "dice-5.png.crdownload";
+        }
+        if (randomenumber2 == 6) {
+          document.getElementById("randimg2").src = "dice-6.png";
+        }
         if (randomenumber1 === randomenumber2) {
           document.getElementById("result").innerText = "Draw";
         } else if (randomenumber1 > randomenumber2) {
