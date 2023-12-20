@@ -4,18 +4,108 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dice Roll game</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+      }
+      body {
+        background-color: #a688e8;
+      }
+      .player-names {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+        align-items: center;
+        margin-top: 30px;
+      }
+      .dice-img-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 20px;
+        padding: 20px;
+      }
+      .Player-play-btns {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      button {
+        background-color: brown;
+        padding: 10px 40px;
+        border: none;
+      }
+      .players {
+        background-color: #258d8b;
+        padding: 20px;
+      }
+    </style>
   </head>
   <body>
     <section class="Dice-game-wrapper">
       <div class="container">
         <!-- Names of players -->
-        <div class="player-names"></div>
+        <div class="player-names">
+          <div><h1 id="player-1" onclick="pn(this,'player-1')" onclick="player_names(this,'player-1')" class="players">Player-1</h1></div>
+          <div><h1 id="player-2" onclick="pn(this,'player-2')" onclick="player_names(this, 'player-2')" class="players">Player-2</h1></div>
+        </div>
         <!-- dice imgs -->
-        <div class="dice-img-wrapper"></div>
+        <div class="dice-img-wrapper">
+          <div class="player-1-dice"><p id="randome1">Number</p></div>
+          <div class="player-2-dice"><p id="randome2">Number</p></div>
+          <span id="result">result</span>
+        </div>
         <!-- players playing butttons-wrapper -->
-        <div class="Player-play-btns"></div>
+        <div class="Player-play-btns">
+          <div class="buttons">
+            <button onclick="rolldice(this,'randome1')">Roll</button>
+          </div>
+        </div>
       </div>
     </section>
+    <!-- script start here -->
+    <script>
+      // FUNCTION FOR PLAYER NAME
+      //   function pn(a, b) {
+      //     let p1 = prompt("Enter player one name", "player name");
+      //     document.getElementById(b).innerText = p1;
+      //     if (a.value != null) {
+      //       document.getElementById(b).innerText = p1;
+      //     }
+      //   }
+      // FUNCTION FOR RANDOME NUMBER
+
+      //   function rolldice(a, roll) {
+      //     let randomenumber1 = Math.floor(Math.random() * 6) + 1; //for first player's num
+      //     let randomenumber2 = Math.floor(Math.random() * 6) + 1; //for second player's num
+
+      //     document.getElementById(roll).innerText = randomenumber1;
+      //     document.getElementById(roll).innerText = randomenumber2; //innertext is changed
+
+      //     if (randomenumber1 === randomenumber2) {
+      //       document.getElementById("result").innerText = "Draw";
+      //     } else if (randomenumber1 > randomenumber2) {
+      //       document.getElementById("result").innerText = "one wins";
+      //     } else {
+      //       document.getElementById("result").innerText = "player two wins";
+      //     }
+      //   }
+
+      function player_names(a, players) {
+        let p1 = prompt("Enter Your Name", "Player-1");
+        let p2 = prompt("Enter Your Name", "Player-2");
+        if (a.value != null) {
+          document.getElementById(players).innerText = p1;
+          document.getElementById(players).innerText = p2;
+        }
+      }
+    </script>
   </body>
 </html>
-w

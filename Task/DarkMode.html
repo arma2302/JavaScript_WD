@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Mode</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: bisque;
+        color: inherit;
+      }
+
+      .main {
+        font-size: 20px;
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 20px;
+      }
+      h1 {
+        font-size: 50px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #fff;
+        border: none;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="modeChange()" id="Change">Dark Mode</button>
+    <section class="main">
+      <h1>Dark Mode</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, consequuntur reiciendis? Tenetur quis non, repellat illo quaerat blanditiis repudiandae alias nobis earum, fugit impedit quos provident necessitatibus minus veritatis
+        commodi?
+      </p>
+      <h1>Dark Mode</h1>
+    </section>
+    <!-- script starts Here -->
+
+    <script>
+      function modeChange() {
+        if (document.querySelector("body").style.backgroundColor !== "black") {
+          document.querySelector("body").style.backgroundColor = "black";
+          document.querySelector("body").style.color = "white";
+          document.getElementById("Change").innerText = "Light Mode";
+        } else {
+          document.querySelector("body").style.backgroundColor = "bisque";
+          document.querySelector("body").style.color = "black";
+          document.getElementById("Change").innerText = "Dark Mode";
+        }
+      }
+    </script>
+  </body>
+</html>
