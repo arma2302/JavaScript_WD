@@ -42,7 +42,7 @@
     </div>
     <div class="btns">
       <button class="prev" onclick="prev()">prev</button>
-      <button class="next" onclick="next()">Next</button>
+      <button class="next" onclick="next()" ondblclick="dblclick()">Next</button>
     </div>
   </body>
   <!-- script Starts Here -->
@@ -75,6 +75,12 @@
       } else if (position == 2) {
         image.src = imageslider[0];
         position = 3;
+      }
+    }
+
+    function dblclick() {
+      for (position = 0; position <= 3; position++) {
+        image.src = imageslider[position];
       }
     }
   </script>

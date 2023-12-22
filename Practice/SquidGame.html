@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Squid game</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #c430208d;
+      }
+      img {
+        width: 100%;
+      }
+      section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+      }
+      .game-logo {
+        width: 250px;
+        align-self: self-start;
+      }
+      .doll-img-wrapper {
+        position: absolute;
+        top: 0;
+        left: 37.5%;
+        width: 300px;
+      }
+      .btns-wrap {
+        margin-bottom: 70px;
+      }
+      button {
+        border: none;
+        padding: 15px 30px;
+
+        color: #fff;
+      }
+
+      button:nth-child(1) {
+        background-color: crimson;
+      }
+      button:nth-child(2) {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <!-- game logo div -->
+      <div class="game-logo"><img src="../images/Squid-Game-Logo.png" alt="" /></div>
+      <!-- div for doll image -->
+
+      <!-- Buttons -->
+      <div class="btns-wrap">
+        <button class="red-light" id="red" onclick="redlight()">Red Light</button>
+        <button class="green-light" id="green" onclick="greenlight()">Green Light</button>
+      </div>
+    </section>
+    <div class="doll-img-wrapper"><img src="../images/doll-front.png" alt="" /></div>
+
+    <!-- script starts here -->
+
+    <script>
+      // function for red light
+      function redlight() {
+        document.querySelector("body").style.backgroundColor = "crimson";
+        document.getElementById("red").style.backgroundColor = "#222";
+        document.getElementById("green").style.backgroundColor = "green";
+      }
+      //   function for green light
+
+      function greenlight() {
+        document.querySelector("body").style.backgroundColor = "green";
+        document.getElementById("green").style.backgroundColor = "#222";
+        document.getElementById("red").style.backgroundColor = "crimson";
+      }
+    </script>
+  </body>
+</html>
