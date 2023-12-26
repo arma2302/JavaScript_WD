@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: blueviolet;
+      }
+      #sect {
+        background-color: brown;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* animation: none; */
+      }
+      button {
+        padding: 15px 30px;
+        border: none;
+        background-color: palevioletred;
+        color: aliceblue;
+        border-radius: 12px;
+        box-shadow: 1px 1px 10px paleturquoise;
+        /* animation-name: none; */
+      }
+      .animation {
+        animation-name: anim;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+      }
+      @keyframes anim {
+        0% {
+          background-color: blue;
+        }
+        20% {
+          background-color: green;
+        }
+        40% {
+          background-color: aquamarine;
+        }
+        60% {
+          background-color: aliceblue;
+        }
+        80% {
+          background-color: #b407a6;
+        }
+        100% {
+          background-color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section id="sect">
+      <button class="clickme" onclick="clickMe()">Click Me</button>
+    </section>
+    <script>
+      document.getElementById("sect").className = "animation";
+    </script>
+  </body>
+</html>

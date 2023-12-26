@@ -9,6 +9,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
       body {
         background-color: #c430208d;
@@ -24,32 +25,72 @@
         align-items: center;
         height: 100vh;
         padding: 20px;
+        position: relative;
+        z-index: 1;
+        background-image: url(../images/doll.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
       }
       .game-logo {
         width: 250px;
         align-self: self-start;
+        margin-left: 80%;
       }
       .doll-img-wrapper {
         position: absolute;
-        top: 0;
-        left: 37.5%;
-        width: 300px;
+        top: 10px;
+        left: 42%;
+        width: 200px;
       }
       .btns-wrap {
-        margin-bottom: 70px;
+        /* margin-bottom: 100%; */
+        position: absolute;
+        top: 25%;
+        right: 20px;
+        display: flex;
+        gap: 20px;
+        /* margin-left: 81%; */
       }
       button {
         border: none;
-        padding: 15px 30px;
-
+        padding: 10px 20px;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
         color: #fff;
+        font-size: 20px;
       }
 
       button:nth-child(1) {
         background-color: crimson;
+        box-shadow: rgb(255 0 0 / 48%) -9px 8px 5px 0px, rgb(255 6 6 / 80%) -6px -2px 16px 0px;
       }
       button:nth-child(2) {
         background-color: green;
+        box-shadow: rgb(0 139 10 / 48%) 8px 9px 5px 0px, rgb(31 255 6 / 80%) -6px -2px 16px 0px;
+      }
+      .sound {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+      }
+
+      .sound audio {
+        opacity: 0;
+      }
+
+      .desc {
+        position: absolute;
+        top: 16px;
+        left: 10px;
+        width: 400px;
+        font-size: 29px;
+        color: #fff;
+        text-align: left;
       }
     </style>
   </head>
@@ -57,31 +98,54 @@
     <section>
       <!-- game logo div -->
       <div class="game-logo"><img src="../images/Squid-Game-Logo.png" alt="" /></div>
-      <!-- div for doll image -->
-
+      <!--description -->
+      <div class="desc">
+        <p>
+          This is a basic javascript project based on squid game web series. <br />
+          <br />
+          in this project you can see two buttons, named red light & green light. <br />
+          <br />
+          when you'll Click on Red light button the sound will play . same will be applied for green light button. <br />
+          <br />
+          i tried to learn how to play audio by using onclick() function in javascript.
+        </p>
+      </div>
       <!-- Buttons -->
       <div class="btns-wrap">
         <button class="red-light" id="red" onclick="redlight()">Red Light</button>
         <button class="green-light" id="green" onclick="greenlight()">Green Light</button>
       </div>
     </section>
-    <div class="doll-img-wrapper"><img src="../images/doll-front.png" alt="" /></div>
+    <div class="sound">
+      <audio id="sound1" controls autoplay src="red-light.mp3"></audio>
+      <audio id="sound2" controls autoplay src="green-light.mp3"></audio>
+      <audio id="doll-sound" autoplay src="squid-game-v-2.mp3"></audio>
+    </div>
 
     <!-- script starts here -->
 
     <script>
       // function for red light
       function redlight() {
-        document.querySelector("body").style.backgroundColor = "crimson";
         document.getElementById("red").style.backgroundColor = "#222";
         document.getElementById("green").style.backgroundColor = "green";
+        document.getElementById("sound1").play();
+        // music.src = "Practice\red-light.mp3";
+        // music.play();
       }
       //   function for green light
 
       function greenlight() {
-        document.querySelector("body").style.backgroundColor = "green";
         document.getElementById("green").style.backgroundColor = "#222";
         document.getElementById("red").style.backgroundColor = "crimson";
+
+        document.getElementById("sound2").play();
+
+        // if (document.getElementById("doll").src == "../images/doll-front.png") {
+        //   document.getElementById("doll").src = "https://i.pinimg.com/originals/99/b0/12/99b01259974f31d385e1dfaef46d8b81.png";
+        // } else {
+        //   document.getElementById("doll").src = "../images/doll-front.png";
+        // }
       }
     </script>
   </body>
