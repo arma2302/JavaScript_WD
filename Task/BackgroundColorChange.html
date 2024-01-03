@@ -20,6 +20,13 @@
         justify-content: center;
         align-items: center;
         /* animation: none; */
+        animation-name: anim;
+        animation-duration: 5s;
+
+        /* animation-iteration-count: 1; */
+        animation-timing-function: pulse;
+        /* animation-fill-mode: forwards; */
+        animation-play-state: paused;
       }
       button {
         padding: 15px 30px;
@@ -30,13 +37,14 @@
         box-shadow: 1px 1px 10px paleturquoise;
         /* animation-name: none; */
       }
-      .animation {
+      /* .animation {
         animation-name: anim;
         animation-duration: 3s;
         animation-iteration-count: 1;
         animation-timing-function: ease;
         animation-fill-mode: forwards;
-      }
+        animation-play-state: paused;
+      } */
       @keyframes anim {
         0% {
           background-color: blue;
@@ -64,7 +72,10 @@
       <button class="clickme" onclick="clickMe()">Click Me</button>
     </section>
     <script>
-      document.getElementById("sect").className = "animation";
+      // document.getElementById("sect").className = "animation";
+      function clickMe() {
+        document.getElementById("sect").style.animationPlayState = "running";
+      }
     </script>
   </body>
 </html>
