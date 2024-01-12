@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- cdn font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .main-wrapper {
+        background-color: #6d4659;
+        height: 100vh;
+      }
+      .container {
+        width: 30%;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        background-color: #ca7a8b;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 45%;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+      }
+      .inputs {
+        width: 100%;
+      }
+      input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #222;
+        padding: 10px;
+      }
+      input:focus {
+        outline: none;
+      }
+      ::placeholder {
+        font-size: 20px;
+        color: #00000034;
+        opacity: 1;
+        text-transform: capitalize;
+      }
+      .single-input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      .btns {
+        padding: 10px 25px;
+        background-color: #111;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        color: #fff;
+      }
+      span {
+        margin-left: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="main-wrapper">
+        <div class="container">
+          <div class="form">
+            <div class="inputs">
+              <div class="single-input">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="name" id="check" onblur="clickMe(this,'username','error1')" />
+              </div>
+              <!-- erroe 1 for username -->
+              <span id="error1"></span> <br />
+              <br />
+              <div class="single-input">
+                <i class="fa-solid fa-lock"></i>
+                <input type="text" placeholder="pass" id="check" onblur="clickMe(this,'password','error2')" />
+              </div>
+              <!-- error2 for password -->
+              <span id="error2"></span> <br />
+              <br />
+              <div class="single-input">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" placeholder="email" id="check" onblur="clickMe(this,'email','error3')" />
+              </div>
+              <!-- error3 for email  -->
+              <span id="error3"></span> <br />
+              <br />
+            </div>
+            <div>
+              <button class="btns" onclick="submit('check')">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <button onclick="clickMe()">click</button> -->
+
+    <script>
+      function clickMe(a, msg, err) {
+        // let input = document.getElementById("user").value;
+        // let email = document.getElementById(type1);
+
+        if (a.value == "") {
+          let node = document.createElement("span");
+          let textnode = document.createTextNode(msg + " is required");
+          node.appendChild(textnode);
+          document.getElementById(err).appendChild(node);
+          node.style.color = "black";
+          node.style.fontSize = "12px";
+        } else {
+          document.getElementById(err).innerText = "";
+        }
+      }
+      function submit(a) {
+        if (a.value == "") {
+          alert("please fill all the details");
+        } else {
+          alert("Your Form Is Submitted");
+        }
+      }
+    </script>
+  </body>
+</html>
