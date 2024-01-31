@@ -17,22 +17,26 @@
     <button id="prev" onclick="prev()">prev</button>
   </body>
   <script>
-    let img = document.getElementById("change").src;
+    // id for chnaging image
+    let img = document.getElementById("change");
     let i = 0;
-    let j = 6;
+    // let j = 3;
+    // array of images
     let imageArray = ["Refimg1.webp", "RefImg2.jpg", "ref4.webp"];
+    // next
     function next() {
       if (i <= imageArray.length - 1) {
-        i++;
         img.src = imageArray[i];
+        i++;
         console.log(i);
       }
     }
+    // previous
     function prev() {
-      if (j > 1) {
-        j--;
-        img.src = imageArray[j];
-        console.log(j);
+      if (i <= 3) {
+        img.src = imageArray[i];
+        i--;
+        console.log(i);
       }
     }
   </script>
