@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>simple to do list</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #user-input {
+        display: flex;
+        gap: 20px;
+        background-color: #6d6875;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+        /* margin: 10% auto; */
+      }
+      #display {
+        margin: 0 auto;
+        width: 50%;
+      }
+      #input-add {
+        padding: 10px 20px;
+        background-color: transparent;
+        border-radius: 10px;
+        border: none;
+        border: 1px solid black;
+        width: 100%;
+      }
+
+      ::placeholder {
+        color: #fff;
+        /* font-size: 20px; */
+      }
+      .container {
+        width: 60%;
+        margin: 100px auto;
+        background-color: #b5838d;
+        padding: 20px;
+      }
+      #additem {
+        padding: 10px 20px;
+        background-color: black;
+        color: beige;
+        font-size: 16px;
+        border-radius: 10px;
+        border: none;
+      }
+      h2 {
+        display: inline;
+      }
+      #additem {
+        padding: 10px 20px;
+        background-color: transparent;
+        margin: 0 5px;
+        border: none;
+        border-radius: 10px;
+        background-color: bisque;
+        color: black;
+      }
+      .icons {
+        display: flex;
+        gap: 20px;
+      }
+
+      #display-to-do {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        /* border: 2px solid #222; */
+        width: 100%;
+        margin: 10px;
+        padding: 20px;
+      }
+      #box {
+        /* padding: 20px; */
+        margin: 20px;
+      }
+      .input-to-do {
+        padding: 20px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        width: 100%;
+        position: relative;
+      }
+      #save {
+        display: none;
+        position: absolute;
+        right: 31%;
+        background: transparent;
+        font-size: 20px;
+        border: none;
+      }
+      .list-input {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="user-input">
+        <input type="text" placeholder="Add Something" id="input-add" />
+        <button id="additem">Add</button>
+      </div>
+
+      <div id="box">
+        <!-- <div id="display-to-do">
+          <input type="checkbox" id="check" />
+          <div class="list-input"><input type="text" placeholder="" class="input-to-do" value="${AddData.value}" /><button id="save">save</button></div>
+          <div class="icons">
+            <i class="fa-regular fa-pen-to-square" id="list-edit"></i>
+            <i class="fa-solid fa-trash" id="dlt"></i>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <script>
+      let btnAdd = document.getElementById("additem");
+      let AddData = document.getElementById("input-add");
+
+      // function to append on click
+      btnAdd.addEventListener("click", function () {
+        // creating  a node element///////////////////////////
+        let node = document.createElement("div");
+
+        // html of a node is stored in text variable
+
+        let text = ` <div id="display-to-do">
+            <input type="checkbox" id="check" onclick="check(this)" />
+              <div class="list-input">
+        <input type="text" placeholder="" class="input-to-do"value="${AddData.value}" id="input-to-do" disabled="true" /><button id="save">save</button></div>
+        <div class="icons">
+          <i class="fa-regular fa-pen-to-square" id="list-edit"></i>
+          <i class="fa-solid fa-trash" id="dlt"></i>
+        </div>
+      </div>`;
+
+        //  textnode is =text
+        let textnode = document.createTextNode(text);
+
+        // append textnode to node
+        node.appendChild(textnode);
+
+        // node innerhtml to text
+        node.innerHTML = text;
+
+        // append child node to box
+        document.getElementById("box").appendChild(node);
+
+        // remove added div /////////////////////////////////////////////////////////////x
+        let dlt_icon = document.getElementById("dlt");
+        dlt_icon.addEventListener("click", function dlt_div() {
+          let div = document.getElementById("display-to-do");
+          div.remove();
+          console.log(div);
+        });
+
+        //edit btn ////////////////////////////////////////////////////////////////////////////
+
+        let listedit = document.getElementById("list-edit");
+        listedit.addEventListener("click", function edit() {
+          document.getElementById("save").style.display = "block";
+          document.getElementById("input-to-do").style.border = "1px solid #222";
+          document.getElementById("input-to-do").style.borderRadius = "10px";
+          document.getElementById("input-to-do").disabled = false;
+        });
+
+        // save function////////////////////////////////////////////////////////////////////////
+
+        let saveBtn = document.getElementById("save");
+        saveBtn.addEventListener("click", function save() {
+          let listInp = document.getElementById("input-to-do");
+          listInp = listInp.value;
+          document.getElementById("input-to-do").style.border = "none";
+          document.getElementById("input-to-do").style.borderRadius = "0";
+          document.getElementById("");
+          document.getElementById("input-to-do").disabled = "true";
+          document.getElementById("save").style.display = "none";
+        });
+
+        // function dlt(a) {
+        //   let remove_list = document.getElementById("display-to-do");
+        //   remove_list.remove(remove_list.a);
+        // }
+
+        // // empty the input once value is appended//////////////////////
+        // if (AddData.value != "") {
+        //   AddData.value = "";
+        // } else {
+        //   AddData.value;
+        // }
+
+        // check
+
+        function check(a) {
+          a.remove();
+        }
+      });
+    </script>
+  </body>
+</html>
