@@ -146,9 +146,9 @@
         let text = ` <div id="display-to-do">
             <input type="checkbox" id="check" onclick="check(this)" />
               <div class="list-input">
-        <input type="text" placeholder="" class="input-to-do"value="${AddData.value}" id="input-to-do" disabled="true" /><button id="save">save</button></div>
+        <input type="text" placeholder="" class="input-to-do"value="${AddData.value}" id="input-to-do" disabled /><button id="save">save</button></div>
         <div class="icons">
-          <i class="fa-regular fa-pen-to-square" id="list-edit"></i>
+          <i class="fa-regular fa-pen-to-square" id="list-edit"   onclick='handleEdit(this)'></i>
           <i class="fa-solid fa-trash" id="dlt"></i>
         </div>
       </div>`;
@@ -166,35 +166,35 @@
         document.getElementById("box").appendChild(node);
 
         // remove added div /////////////////////////////////////////////////////////////x
-        let dlt_icon = document.getElementById("dlt");
-        dlt_icon.addEventListener("click", function dlt_div() {
-          let div = document.getElementById("display-to-do");
-          div.remove();
-          console.log(div);
-        });
+        // let dlt_icon = document.getElementById("dlt");
+        // dlt_icon.addEventListener("click", function dlt_div() {
+        //   let div = document.getElementById("display-to-do");
+        //   div.remove();
+        //   console.log(div);
+        // });
 
         //edit btn ////////////////////////////////////////////////////////////////////////////
 
-        let listedit = document.getElementById("list-edit");
-        listedit.addEventListener("click", function edit() {
-          document.getElementById("save").style.display = "block";
-          document.getElementById("input-to-do").style.border = "1px solid #222";
-          document.getElementById("input-to-do").style.borderRadius = "10px";
-          document.getElementById("input-to-do").disabled = false;
-        });
+        // let listedit = document.getElementById("list-edit");
+        // listedit.addEventListener("click", function edit() {
+        //   document.getElementById("save").style.display = "block";
+        //   document.getElementById("input-to-do").style.border = "1px solid #222";
+        //   document.getElementById("input-to-do").style.borderRadius = "10px";
+        //   document.getElementById("input-to-do").disabled = false;
+        // });
 
         // save function////////////////////////////////////////////////////////////////////////
 
-        let saveBtn = document.getElementById("save");
-        saveBtn.addEventListener("click", function save() {
-          let listInp = document.getElementById("input-to-do");
-          listInp = listInp.value;
-          document.getElementById("input-to-do").style.border = "none";
-          document.getElementById("input-to-do").style.borderRadius = "0";
-          document.getElementById("");
-          document.getElementById("input-to-do").disabled = "true";
-          document.getElementById("save").style.display = "none";
-        });
+        // let saveBtn = document.getElementById("save");
+        // saveBtn.addEventListener("click", function save() {
+        //   let listInp = document.getElementById("input-to-do");
+        //   listInp = listInp.value;
+        //   document.getElementById("input-to-do").style.border = "none";
+        //   document.getElementById("input-to-do").style.borderRadius = "0";
+        //   document.getElementById("");
+        //   document.getElementById("input-to-do").disabled = "true";
+        //   document.getElementById("save").style.display = "none";
+        // });
 
         // function dlt(a) {
         //   let remove_list = document.getElementById("display-to-do");
@@ -210,10 +210,29 @@
 
         // check
 
-        function check(a) {
-          a.remove();
-        }
+        // function check(a) {
+        //   a.remove();
+        // }
       });
+
+      //  edit button function
+
+      function handleEdit(a) {
+        // let inpList = document.getElementById("input-to-do");
+        if (a.previousElementSibling.disabled) {
+          a.previousElementSibling.removeAttribute("disabled");
+          document.getElementById("save").style.display = "block";
+          document.getElementById("input-to-do").style.border = "1px solid #222";
+          document.getElementById("input-to-do").style.borderRadius = "10px";
+
+          // a.innerHTML = "Save";
+        } else {
+          a.previousElementSibling.disabled = true;
+          document.getElementById("save").style.display = "none";
+          document.getElementById("input-to-do").style.border = "none";
+          document.getElementById("input-to-do").style.borderRadius = "0";
+        }
+      }
     </script>
   </body>
 </html>
